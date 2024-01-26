@@ -1,6 +1,13 @@
 body {
-    background-color: black;
+    background-color: beige;
 }
-h2{
-    color: white;
+
+nav {
+    background-color: yellow;
+    padding-left: 20px;
+    width: 20vh;
+}
+
+p{
+    color: black;
 }
