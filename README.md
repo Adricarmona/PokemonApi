@@ -1,1 +1,3 @@
-##Pagina web de Pokemon con html, css y javascript de Gla2s y Rikitr.
+## Pagina web Pokemon 
+_Gla2s y Rikitr_  
+con html, css y javascript
