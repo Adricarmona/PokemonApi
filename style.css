@@ -27,12 +27,15 @@ nav{
 }
 
 .cuerpo_dentro{
-    background-color: rgba(83, 83, 83, 0.418);
     margin: auto;
 }
 
 #Pokedex_icono{
     width: 80vh;
+}
+
+#Base{
+    background-color: rgba(83, 83, 83, 0.418);
 }
 
 p{
