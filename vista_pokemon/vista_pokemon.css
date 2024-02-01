@@ -1,11 +1,41 @@
+/* EL CUERPO CENTRADO Y EL COLOR DEL FONDO*/
 body {
-    background-color: black;
+    background-color: rgb(43, 43, 43);
 }
 
-h2{
-    color: white;
+.cuerpo_fuera{
+    display: grid;
 }
 
+.cuerpo_dentro{
+    margin: auto;
+}
+
+
+/* IMAGEN Y NAVEGACION */
 #Pokedex_icono{
     width: 80vh;
+}
+
+/* LOS BOTONES DE ARRIBA */
+.Botones_arriba {
+    position: absolute;
+}
+
+#Volver {
+    top: 2vh;
+    left: 47vh;
+}
+
+#flecha_atras {
+    width: 7vh;
+}
+
+/* LA BASE DE LA PAGINA */
+#Base{
+    background-color: rgba(255, 255, 255, 0.342);
+}
+
+h2 {
+    color: white
 }
