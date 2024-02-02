@@ -1,15 +1,29 @@
+let pokemonsTotales = [];
+
+for (let index = 1; index < 151; index++) {
+    damePokemonYa(index)
+
+}
+
+// devuelve el pokemon en el array pokemonsTotaless
+async function devolverArray(id) {
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
+    const pokemonJson = await response.text();
+    const obj = JSON.parse(pokemonJson);
+    pokemonsTotales[id] = obj;
+    console.log(pokemonsTotales[id]);
+}
+
 async function damePokemonYa(id) {
     console.log(123);
-    const response = await fetch('https://pokeapi.co/api/v2/pokemon/$(id)');
+    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemonJson = await response.text();
     const obj = JSON.parse(pokemonJson);
     console.log(obj);
     console.log(obj.stats);
     document.getElementById('name').innerText = obj.name;
-    document.getElementById('imagen').src = obj.sprites.other['official-artwork'].front_default;
+    document.getElementById('imagen').src = obj.sprites.front_default;
 }
-
-
 
 // CODIGO PARA MODO OSCURO-CLARO
 //*

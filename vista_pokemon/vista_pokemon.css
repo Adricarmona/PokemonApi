@@ -1,6 +1,6 @@
 /* EL CUERPO CENTRADO Y EL COLOR DEL FONDO*/
 body {
-    background-color: rgb(43, 43, 43);
+    background-image: url(../imagenes/fondo_oscuro_pokeapi.jpg);
 }
 
 .cuerpo_fuera{

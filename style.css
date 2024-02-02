@@ -9,14 +9,9 @@ body {
     color: white;
 }
 
-nav {
-    padding-top: 10px;
-}
-
 .headerPrincipal {
     background-color: rgb(210, 0, 0);
-    height: 60%;
-    align-items: center;
+    height: 40%;
     display: flex;
 }
 
