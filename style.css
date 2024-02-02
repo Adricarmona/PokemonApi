@@ -1,6 +1,12 @@
 body {
     background-color: beige;
     margin: 0;
+    transition: background-image 0.5s ease-in-out;
+}
+
+.modo-oscuro {
+    background-color: rgb(30, 30, 30);
+    color: white;
 }
 
 nav {
@@ -8,7 +14,7 @@ nav {
 }
 
 .headerPrincipal {
-    background-color: rgb(80, 80, 80);
+    background-color: rgb(210, 0, 0);
     height: 60%;
     align-items: center;
     display: flex;
