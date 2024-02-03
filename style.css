@@ -47,8 +47,21 @@ nav {
 
 #Base {
     background-color: rgba(83, 83, 83, 0.418);
+    display: grid;
+    grid-template-columns: 40vh 40vh;
+    padding: 2vh;
 }
 
 p {
     color: black;
+}
+
+/* POKEMONS */
+
+.pokemons {
+    background-color: aliceblue;
+    text-align: center;
+    padding: 2.5vh 0px;
+    margin: 15px;
+    border-radius: 10px;
 }
