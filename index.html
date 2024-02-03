@@ -9,23 +9,27 @@
 <body style="background-image: url('./imagenes/fondo_claro_pokeapi.jpg');">
     <div class="cuerpo_fuera">
         <div class="cuerpo_dentro">
-            <header class="headerPrincipal">
+            <header>
                 <img id="Pokedex_icono" src="./imagenes/pokedex_inicio.png">
             </header>
-            <div class="headerSecundario">
-                <button class="modoOscuro">Modo Oscuro</button>
-                <p class="botonBuscar"><input type="text" placeholder="Buscar: Pokemon"></p>
-            </div>
+            <nav>
+                <button id="modoOscuro">Modo Oscuro</button>
+                <p id="botonBuscar"><input type="text" placeholder="Buscar: Pokemon"></p>
+            </nav>
             <div id="Base">
-                <h2>Work In Progress</h2>
-                <br>
                 <a href="./vista_pokemon/vista_pokemon.html">pokemon</a>
-                <h2 id="name"></h2>
-                <img id="imagen" width="200px">
                 <h2>Work In Progress</h2>
+                <!--    ASI ES COMO VAN A APARECER TODOS LOS POKEMONS QUE LUEGO SE METE EN EL JS    -->
+                <div class="pokemons">
+                    <h2 id="name">test</h2>
+                    <p id="codigo">codigo</p>
+                    <img id="imagen" width="200px" src="./imagenes/pokemon_trabajando.jpg">
+                </div>
+                
             </div>
         </div>
     </div>
     <script src="./javascript_index.js"></script>
+    <script src="./modo_oscuro.js"></script>
 </body>
 </html>

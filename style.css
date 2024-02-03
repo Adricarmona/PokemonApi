@@ -1,21 +1,24 @@
 body {
-    background-color: beige;
+    background-color: rgb(0, 0, 0);
     margin: 0;
     transition: background-image 0.5s ease-in-out;
 }
 
-.modo-oscuro {
-    background-color: rgb(30, 30, 30);
-    color: white;
-}
 
-.headerPrincipal {
+
+/*/////////// LA CABEZERA Y LA BARRA DE NAVEGACION ////////////*/
+header {
     background-color: rgb(210, 0, 0);
     height: 40%;
     display: flex;
 }
 
-.headerSecundario {
+#Pokedex_icono { /*La foto de arriba*/
+    width: 40vh;
+    margin: auto;
+}
+
+nav {
     background-color: black;
     height: 40px;
     display: flex;
@@ -23,24 +26,23 @@ body {
     padding: 10px;
 }
 
-.botonBuscar {
+/* el boton de modo oscuro y la barra de buscar */
+#modoOscuro {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    margin-left: 20px;
+}
+
+#botonBuscar {
     margin-left: auto;
     margin-right: 20px;
 }
 
+/* DONDE APARECEN TODOS LOS POKEMONS */
 .cuerpo_fuera {
     display: grid;
     width: 50%; /* ancho de todo el bloque de la pagina */
     margin: auto;
-}
-
-#Pokedex_icono {
-    width: 70vh;
-    margin: auto;
-}
-
-.modoOscuro {
-    margin-left: 20px;
 }
 
 #Base {
