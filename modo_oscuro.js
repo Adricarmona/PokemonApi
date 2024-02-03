@@ -19,7 +19,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nuevaFondo = `url('${nuevaImagen}')`;
         const transicionDuracion = 500; 
         const incrementoOpacidad = 0.02;
-        let opacidad = 1;
+        let opacidad = 0;  // he arreglado el flachazo poniendo esto en 0, ya no te ciega como una flash del counter
         const intervalo = setInterval(function () {
         opacidad -= incrementoOpacidad;
         if (opacidad <= 0) {
