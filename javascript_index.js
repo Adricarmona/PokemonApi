@@ -7,8 +7,12 @@ async function cargarPokemons() {
         await devolverArray(index);
     }
 
-    // Imprime los nombres de todos los pokemons
-    pokemonsTotales.forEach(pokemon => console.log(pokemon.name));
+    // Imprime los nombres de todos los pokemons (Transformar en for o asi)
+    pokemonsTotales.forEach(pokemon => {if (pokemon.type.length > 1) {
+        console.log(pokemon.name, pokemon.types[0].type.name, pokemon.types[1].type.name)
+    } else {
+        console.log(pokemon.name, pokemon.types[0].type.name)
+    }} );
 }
 
 console.log(pokemonsTotales);
