@@ -30,18 +30,27 @@ console.log(pokemonsTotales)
 /////////ESTE ES COMO ESTA PENSADO EL DIV pokemon POR AHORA ////////////////
 /*
 <div class="pokemons">
-    <a href="./vista_pokemon/vista_pokemon.html">
-        <img id="imagen" width="200px" src="./imagenes/pokemon_trabajando.jpg">
-        <h2 id="name">nombre</h2>
-        <p id="codigo">codigo</p>
+    <a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html">
+        <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
+        <h2 id="name">${pokemon.name}</h2>
+        <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
+        <div class="tipo" >
+            <p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
+            <p id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</p>
+        </div>
     </a>
 </div>
 */
 function imprimirPokemons(pokemon) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
-    zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${pokemon.id}</p></a>`;
+    if(pokemon.types.length == 1){
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p></div></a>`;
+    } else {
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p><p id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</p></div></a>`;
+    }
     document.getElementById('Base').appendChild(zonaPokemon);
+    console.log(pokemon.types[0].type.name);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
