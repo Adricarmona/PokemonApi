@@ -5,7 +5,7 @@ const pokemonsTotales = []; // array donde esta todos los pokemons
 /// esta funcion coge todos los pokemons
 async function cargarPokemons() {
     // coge los 151 y los mete en el array
-    for (let index = 1; index < 151; index++) {
+    for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
     // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
@@ -24,7 +24,6 @@ async function devolverArray(id) { // Coge la id del pokemon dado en el bucle en
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-console.log(pokemonsTotales)
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
 /////////ESTE ES COMO ESTA PENSADO EL DIV pokemon POR AHORA ////////////////
@@ -34,9 +33,9 @@ console.log(pokemonsTotales)
         <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
         <h2 id="name">${pokemon.name}</h2>
         <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
-        <div class="tipo" >
-            <p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p>
-            <p id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</p>
+        <div class="tipo">
+            <p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
+            <p id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
         </div>
     </a>
 </div>
@@ -44,15 +43,56 @@ console.log(pokemonsTotales)
 function imprimirPokemons(pokemon) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
-    if(pokemon.types.length == 1){
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p></div></a>`;
+    if(pokemon.types.length == 1){                                      // la "?" es para enviar el parrametro y "id=" es para indicar que variable es el dato y el pokemon id evidentemente es el numero
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p></div></a>`;
     } else {
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${pokemon.types[0].type.name}</p><p id="${pokemon.types[1].type.name}">${pokemon.types[1].type.name}</p></div></a>`;
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p><p id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p></div></a>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
-    console.log(pokemon.types[0].type.name);
+    
 }
 //////////////////////////////////////////////////////////////////////////////////////////
+
+//////////////////// TRADUCTOR DE LAS PALABRAS ///////////////////////////
+function traductor(tipo) {
+    switch (tipo) {
+        case "grass":
+            return "Planta";
+        case "fire":
+            return "Fuego";
+        case "water":
+            return "Agua";
+        case "poison":
+            return "Veneno";
+        case "bug":
+            return "Bicho";
+        case "normal":
+            return "Normal";
+        case "flying":
+            return "Volador";
+        case "electric":
+            return "Eléctrico";
+        case "ground":
+            return "Tierra";
+        case "fairy":
+            return "Hada";
+        case "fighting":
+            return "Lucha";
+        case "psychic":
+            return "Psiquico";
+        case "rock":
+            return "Roca";
+        case "steel":
+            return "Acero";
+        case "ice":
+            return "Hielo";
+        case "ghost":
+            return "Fantasma";
+        default:
+            return "Error";
+    }
+}
+//////////////////////////////////////////////////////////////////////////
 
 /*
 async function damePokemonYa(id) {
