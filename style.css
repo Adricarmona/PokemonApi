@@ -2,6 +2,7 @@
 @font-face {
     font-family: protests;
     src: url(./fuentes/ProtestStrike-Regular.ttf);
+
 }
 /* EL BODY  */
 body {
@@ -9,6 +10,15 @@ body {
     margin: 0;
     transition: background-image 0.5s ease-in-out;
     font-family:protests;
+}
+
+/* El BOTON DE SUBIR */
+#flechaVolver {
+    position: fixed;
+    cursor: pointer;
+    width: 6.5vh;
+    bottom: 10vh;
+    right: 35vh;
 }
 
 /*  LA CABEZERA Y LA BARRA DE NAVEGACION  */
@@ -84,4 +94,77 @@ p {
 
 #codigo {
     font-style: oblique;
+}
+
+/*  los tipos de los pokemons   */
+
+.tipo{
+    margin-left: 41%;
+    width: 7.5vh;
+    height: 2vh;
+    border-radius: 7px;
+}
+
+#grass {
+    background-color: green;
+}
+
+#fire {
+    background-color: red;
+}
+
+#water {
+    background-color: #2481EF;
+}
+
+#poison {
+    background-color: #8F41CB;
+}
+
+#bug {
+    background-color: #92A212;
+}
+
+#normal {
+    background-color: #9FA19F;
+}
+
+#flying {
+    background-color: #81B9EF;
+}
+
+#electric {
+    background-color: #FAC000;
+}
+
+#ground {
+    background-color: #915121;
+}
+
+#fairy {
+    background-color: #EF71EF;
+}
+
+#fighting {
+    background-color: #FF8100;
+}
+
+#psychic {
+    background-color: #EF4179;
+}
+
+#rock {
+    background-color: #AFA981;
+}
+
+#steel {
+    background-color: #60A1B8;
+}
+
+#ice {
+    background-color: #3DD9FF;
+}
+
+#ghost {
+    background-color: #704170;
 }

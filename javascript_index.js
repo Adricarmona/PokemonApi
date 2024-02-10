@@ -33,9 +33,9 @@ async function devolverArray(id) { // Coge la id del pokemon dado en el bucle en
         <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
         <h2 id="name">${pokemon.name}</h2>
         <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
-        <div class="tipo">
-            <p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
-            <p id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
+        <div>
+            <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
+            <p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
         </div>
     </a>
 </div>
@@ -44,9 +44,9 @@ function imprimirPokemons(pokemon) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
     if(pokemon.types.length == 1){                                      // la "?" es para enviar el parrametro y "id=" es para indicar que variable es el dato y el pokemon id evidentemente es el numero
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p></div></a>`;
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div><p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p></div></a>`;
     } else {
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div class="tipo" ><p id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p><p id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p></div></a>`;
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div><p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p><p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p></div></a>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
     
@@ -93,16 +93,3 @@ function traductor(tipo) {
     }
 }
 //////////////////////////////////////////////////////////////////////////
-
-/*
-async function damePokemonYa(id) {
-    console.log(123);
-    const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
-    const pokemonJson = await response.text();
-    const obj = JSON.parse(pokemonJson);
-    console.log(obj);
-    console.log(obj.stats);
-    document.getElementById('name').innerText = obj.name;
-    document.getElementById('imagen').src = obj.sprites.front_default;
-}
-*/
