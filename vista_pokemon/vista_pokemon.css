@@ -14,7 +14,9 @@ body {
 
 /* IMAGEN Y NAVEGACION */
 #Pokedex_icono{
-    width: 80vh;
+    width: 60vh;
+    margin: auto;
+    display: flex;
 }
 
 /* LOS BOTONES DE ARRIBA */
@@ -33,9 +35,16 @@ body {
 
 /* LA BASE DE LA PAGINA */
 #Base{
+    padding: 2vh;
     background-color: rgba(255, 255, 255, 0.342);
+    text-align: center;
 }
 
-h2 {
-    color: white
+/* DATOS POKEMON */
+#fotoPokemon{
+    width: 40vh;
+}
+
+.iconosPequeno {
+    width: 4vh;
 }
