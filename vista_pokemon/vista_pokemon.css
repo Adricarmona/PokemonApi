@@ -1,6 +1,13 @@
+/*  LAS FUENTES  */
+@font-face {
+    font-family: protests;
+    src: url(../fuentes/ProtestStrike-Regular.ttf);
+}
+
 /* EL CUERPO CENTRADO Y EL COLOR DEL FONDO*/
 body {
     background-image: url(../imagenes/fondo_oscuro_pokeapi.jpg);
+    font-family:protests;
 }
 
 .cuerpo_fuera{
@@ -47,4 +54,43 @@ body {
 
 .iconosPequeno {
     width: 4vh;
+}
+
+/*  los tipos de los pokemons   */
+
+h1{ /*EL NOMBRE*/
+    background-color: aliceblue;
+    border-radius: 60vh;
+    margin: 0vh;
+    margin-bottom: -3vh;
+    font-size: 8vh;
+    font-style: oblique;
+}
+
+h3 { /*el codigo*/
+    font-size: 6vh;
+    margin: 1vh;
+    font-style: oblique;
+}
+
+.tipo{
+    display: inline;
+    margin-right: 10px;
+    padding: 0.6vh;
+    width: 9vh;
+    height: 3vh;
+    font-size: 2vh;
+    border-radius: 10px;
+}
+
+hr {
+    margin: 5vh 0;
+}
+
+#descripcion {
+    background-color: rgba(216, 216, 216, 0.568);
+    border-radius: 1vh;
+    padding: 1vh;
+    width: 40vh;
+    margin: auto;
 }

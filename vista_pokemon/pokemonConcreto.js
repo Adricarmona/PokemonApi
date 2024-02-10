@@ -1,8 +1,9 @@
 ///////// sacando la id del pokemon pedido //////////
 const idURL = new URLSearchParams(window.location.search);
 const id = idURL.get('id');
-dameDescripcionYa(id).then((pokemon) => {Descripcion(pokemon);}); 
-damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon);}); 
+let descripcion;
+dameDescripcionYa(id).then((pokemon) => {descripcion = Descripcion(pokemon);}); 
+damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon,descripcion);}); 
 // cogemos el pokemon y con el then lo convertimos a sincrono metiendolo en "pokemon"
 // y metiendolo en la funcion flecha, y lo metemos en la funcion "imprimir" dandole "pokemon"
 /////////////////////////////////////////////////////
@@ -17,7 +18,8 @@ async function damePokemonYa(id) {
 }
 //////////////////////////////////////////////////////
 
-////////    devuelve el pokemon en concreto //////////
+
+////////    devuelve la descripcion en concreto //////////
 async function dameDescripcionYa(id) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`);
     const pokemonJson = await response.text();
@@ -29,7 +31,6 @@ async function dameDescripcionYa(id) {
 
 ////////    imprimimos la descripcion por pantalla    //////////
 function Descripcion(pokemon){
-    console.log(pokemon.flavor_text_entries[26].flavor_text);
     return pokemon.flavor_text_entries[26].flavor_text;
 }
 ////////////////////////////////////////////////////////////
@@ -48,32 +49,34 @@ function Descripcion(pokemon){
     </div>
     <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
     <p id="descripcion"></p>
-    <div><h4>ESTADISTICAS</h4></div>
+    -<div><h4>ESTADISTICAS</h4></div>
 </div>
 */
-function imprimirPokemons(pokemon) {
+function imprimirPokemons(pokemon,descripcion) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
     if(pokemon.types.length == 1){                                  
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
         <img id="fotoPokemon" src="${pokemon.sprites.other.home.front_default}" alt="pokemon">
-        <div>
-            <h3>ID: ${(pokemon.id).toString().padStart(3,"00")}</h3>
+        <h3>ID: ${(pokemon.id).toString().padStart(3,"00")}</h3>
+        <div class="tipos">
             <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
         </div>
+        <hr>
         <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
-        <p id="descripcion"></p>
+        <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     } else {
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
         <img id="fotoPokemon" src="${pokemon.sprites.other.home.front_default}" alt="pokemon">
-        <div>
-            <h3>ID: ${(pokemon.id).toString().padStart(3,"00")}</h3>
-            <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
-            <p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
+        <h3>ID: ${(pokemon.id).toString().padStart(3,"00")}</h3>
+        <div class="tipos">
+            <span class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</span>
+            <span class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</span>
         </div>
+        <hr>
         <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
-        <p id="descripcion"></p>
+        <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
