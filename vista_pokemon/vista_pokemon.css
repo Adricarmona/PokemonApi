@@ -6,7 +6,7 @@
 
 /* EL CUERPO CENTRADO Y EL COLOR DEL FONDO*/
 body {
-    background-image: url(../imagenes/fondo_oscuro_pokeapi.jpg);
+    background-image: url(../imagenes/fondo_claro_pokeapi.jpg);
     font-family:protests;
 }
 
@@ -18,6 +18,12 @@ body {
     margin: auto;
 }
 
+/* el boton de modo oscuro */
+#modoOscuro {
+    background-color: rgb(30, 30, 30);
+    color: white;
+    margin-top: 10%;
+}
 
 /* IMAGEN Y NAVEGACION */
 #Pokedex_icono{
@@ -28,6 +34,7 @@ body {
 
 /* LOS BOTONES DE ARRIBA */
 .Botones_arriba {
+    margin-top: 1%;
     position: absolute;
 }
 
@@ -42,6 +49,7 @@ body {
 
 /* LA BASE DE LA PAGINA */
 #Base{
+    margin-top: 3%;
     padding: 2vh;
     background-color: rgba(255, 255, 255, 0.342);
     text-align: center;
@@ -53,7 +61,7 @@ body {
 }
 
 .iconosPequeno {
-    width: 4vh;
+    width: 5vh;
 }
 
 /*  los tipos de los pokemons   */

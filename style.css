@@ -13,10 +13,11 @@ body {
 
 /* El BOTON DE SUBIR */
 #flechaVolver {
+    transform:rotate(90deg);
     position: fixed;
     cursor: pointer;
     width: 6.5vh;
-    bottom: 10vh;
+    bottom: 10vh;   
     right: 35vh;
 }
 
