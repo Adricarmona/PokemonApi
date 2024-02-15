@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", function () {
         const nuevaFondo = `url('${nuevaImagen}')`;
         const transicionDuracion = 500; 
         const incrementoOpacidad = 0.02;
-        let opacidad = 1;
+        let opacidad = 0;
         const intervalo = setInterval(function () {
             opacidad -= incrementoOpacidad;  
             if (opacidad <= 0) {
