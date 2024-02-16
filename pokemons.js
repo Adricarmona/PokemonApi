@@ -8,45 +8,67 @@ async function cargarPokemons() {
     for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
-    // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
-    // asi hasta que se termine el forEach
-    pokemonsTotales.forEach(pokemon => imprimirPokemons(pokemon));
+    // se mete en el buscador para imprimir pokemons
+    buscador(pokemonsTotales);
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
+/// BARRRA DE BUSQUEDA ////
+const barraBusqueda = document.getElementById('buscador');
+barraBusqueda.addEventListener("keyup",buscador(pokemonsTotales))
+
+// Buscador //
+function buscador(pokemonsTotales) {
+    var dato = document.getElementById('buscador').value.toLowerCase();
+
+    // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
+    // asi hasta que se termine el forEach
+    for(const pokemon of pokemonsTotales ){
+        if (dato == "") {
+            imprimirPokemons(pokemon)
+        } else {
+            console.log("datos")
+        }
+    }
+}
+/////////////////////////
 
 ///////////////////////// esta es la funcion que devuelve el Json a el text array ////////////////////////////
 async function devolverArray(id) { // Coge la id del pokemon dado en el bucle encima
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`); // coge la informacion de la ap y la mete en response
     const pokemonJson = await response.text(); // la transforma en texto 
     const obj = JSON.parse(pokemonJson); // La transforma de json a objeto 
-    pokemonsTotales[id] = obj; // lo pasa a un array donde estan todos los pokemons
+    pokemonsTotales[id - 1] = obj; // lo pasa a un array donde estan todos los pokemons
 }
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
 /////////ESTE ES COMO ESTA PENSADO EL DIV pokemon POR AHORA ////////////////
-/*
-<div class="pokemons">
-    <a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html">
-        <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
-        <h2 id="name">${pokemon.name}</h2>
-        <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
-        <div>
-            <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
-            <p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
-        </div>
-    </a>
-</div>
-*/
 function imprimirPokemons(pokemon) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
+    console.log(pokemon)
     if(pokemon.types.length == 1){                                      // la "?" es para enviar el parrametro y "id=" es para indicar que variable es el dato y el pokemon id evidentemente es el numero
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div><p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p></div></a>`;
+        zonaPokemon.innerHTML = 
+        `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}">
+            <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
+            <h2 id="name">${pokemon.name}</h2>
+            <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
+            <div>
+                <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
+            </div>
+        </a>`;
     } else {
-        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}"><img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}"><h2 id="name">${pokemon.name}</h2><p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p><div><p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p><p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p></div></a>`;
+        zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}">
+            <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
+            <h2 id="name">${pokemon.name}</h2>
+            <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
+            <div>
+                <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
+                <p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
+            </div>
+        </a>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
     
