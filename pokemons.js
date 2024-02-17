@@ -8,25 +8,37 @@ async function cargarPokemons() {
     for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
-    // se mete en el buscador para imprimir pokemons
-    buscador(pokemonsTotales);
+    buscador;
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
 /// BARRRA DE BUSQUEDA ////
-const barraBusqueda = document.getElementById('buscador');
-barraBusqueda.addEventListener("keyup",buscador(pokemonsTotales))
+const barraBusqueda = document.getElementById('botonBuscar');
+barraBusqueda.addEventListener("keydown", buscador);
 
 // Buscador //
-function buscador(pokemonsTotales) {
-    var dato = document.getElementById('buscador').value.toLowerCase();
+function buscador() {
+    // coge la barra y comprueba si tiene datos para meterlos en minusculas a datos o mete nada ''
+    var elemento = document.getElementById('barraBusqueda');
+    var dato;
+    if (elemento) {
+        dato = elemento.value;
+    } else {
+        dato = "";
+    }
+    console.log(dato)
 
+    let nombre; // el nombre de cada poquemon para que pueda comprobarlos
     // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
     // asi hasta que se termine el forEach
     for(const pokemon of pokemonsTotales ){
+        nombre = pokemon.name;
         if (dato == "") {
             imprimirPokemons(pokemon)
         } else {
+            if (nombre.includes(`${dato}`)) {
+                imprimirPokemons(pokemon)
+            }
             console.log("datos")
         }
     }
@@ -48,7 +60,6 @@ async function devolverArray(id) { // Coge la id del pokemon dado en el bucle en
 function imprimirPokemons(pokemon) {
     var zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
-    console.log(pokemon)
     if(pokemon.types.length == 1){                                      // la "?" es para enviar el parrametro y "id=" es para indicar que variable es el dato y el pokemon id evidentemente es el numero
         zonaPokemon.innerHTML = 
         `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}">
