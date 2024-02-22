@@ -8,8 +8,9 @@ async function cargarPokemons() {
     for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
-
-    buscador();
+    for (const pokemon of pokemonsTotales) {
+        imprimirPokemons(pokemon)
+    }
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
