@@ -63,7 +63,7 @@ function imprimirPokemons(pokemon,descripcion) {
             <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
         </div>
         <hr>
-        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
+        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}m</p>
         <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     } else {
@@ -75,7 +75,7 @@ function imprimirPokemons(pokemon,descripcion) {
             <span class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</span>
         </div>
         <hr>
-        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
+        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}kg|<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}m</p>
         <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     }

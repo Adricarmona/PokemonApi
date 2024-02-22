@@ -23,14 +23,11 @@ function buscador(da) {
     // coge la barra y comprueba si tiene datos para meterlos en minusculas a datos o mete nada ''
     var elemento = document.getElementById('botonBuscar');
     var dato;
-    console.log(dato);
-    console.log(elemento.value);
     if (elemento) {
-        dato = elemento.value;
+        dato = elemento.value.toLowerCase();
     } else {
         dato = "";
     }
-    console.log(dato)
 
     let nombre; // el nombre de cada poquemon para que pueda comprobarlos
     // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
