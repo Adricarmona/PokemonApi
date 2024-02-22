@@ -8,19 +8,22 @@ async function cargarPokemons() {
     for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
-    buscador;
+
+    buscador();
 }
 //////////////////////////////////////////////////////////////////////////////////////////
 
 /// BARRRA DE BUSQUEDA ////
 const barraBusqueda = document.getElementById('botonBuscar');
-barraBusqueda.addEventListener("keydown", buscador);
+barraBusqueda.addEventListener("keyup", buscador);
 
 // Buscador //
-function buscador() {
+function buscador(da) {
     // coge la barra y comprueba si tiene datos para meterlos en minusculas a datos o mete nada ''
-    var elemento = document.getElementById('barraBusqueda');
+    var elemento = document.getElementById('botonBuscar');
     var dato;
+    console.log(dato);
+    console.log(elemento.value);
     if (elemento) {
         dato = elemento.value;
     } else {
@@ -39,7 +42,6 @@ function buscador() {
             if (nombre.includes(`${dato}`)) {
                 imprimirPokemons(pokemon)
             }
-            console.log("datos")
         }
     }
 }
