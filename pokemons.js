@@ -19,6 +19,7 @@ barraBusqueda.addEventListener("keydown", buscador);
 
 // Buscador //
 function buscador(da) {
+    document.getElementById('Base').innerHTML = '';
     // coge la barra y comprueba si tiene datos para meterlos en minusculas a datos o mete nada ''
     var elemento = document.getElementById('botonBuscar');
     var dato;
