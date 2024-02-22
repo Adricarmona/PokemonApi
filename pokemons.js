@@ -15,7 +15,7 @@ async function cargarPokemons() {
 
 /// BARRRA DE BUSQUEDA ////
 const barraBusqueda = document.getElementById('botonBuscar');
-barraBusqueda.addEventListener("keydown", buscador);
+barraBusqueda.addEventListener("keyup", buscador);
 
 // Buscador //
 function buscador(da) {
