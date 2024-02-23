@@ -113,7 +113,7 @@ function traductor(tipo) {
         case "fighting":
             return "Lucha";
         case "psychic":
-            return "Psiquico";
+            return "Psíquico";
         case "rock":
             return "Roca";
         case "steel":

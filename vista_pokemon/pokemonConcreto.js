@@ -53,7 +53,7 @@ function Descripcion(pokemon){
 </div>
 */
 function imprimirPokemons(pokemon,descripcion) {
-    var zonaPokemon = document.createElement('div');
+    let zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
     if(pokemon.types.length == 1){                                  
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
