@@ -95,6 +95,19 @@ p {
     font-style: oblique;
 }
 
+/* POKEMONS NO ENCONTRADOS */
+.erroneo {
+    width: 100%;
+    text-align: center;
+    font-size: 50px;
+    margin: auto 50%;
+}
+
+#pikando {
+    border-radius: 50px;
+}
+
+
 /*  los tipos de los pokemons   */
 
 .tipo{

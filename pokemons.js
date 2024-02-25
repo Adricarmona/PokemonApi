@@ -33,16 +33,23 @@ function buscador(da) {
     let nombre; // el nombre de cada poquemon para que pueda comprobarlos
     // coge los poquemos uno a uno y mete el que este utilizando en pokemon y lo mete en al funcion imprimir pokemons
     // asi hasta que se termine el forEach
-    for(const pokemon of pokemonsTotales ){
+    for(let pokemon of pokemonsTotales ){
         nombre = pokemon.name;
         if (dato == "") {
-            imprimirPokemons(pokemon)
+                imprimirPokemons(pokemon);
         } else {
             if (nombre.includes(`${dato}`)) {
-                imprimirPokemons(pokemon)
+                imprimirPokemons(pokemon);
             }
         }
     }
+    
+    if (document.getElementById('Base').innerHTML.length === 0) {
+        document.getElementById('Base').innerHTML = `
+        <img class="erroneo" id="pikando" src="./imagenes/pikachuPico.png" alt="Pikachu con un pico en baja calidad">
+        <br>
+        <p class="erroneo">No se encuentran pokemos con el nombre: ${dato} </p>`;
+    } 
 }
 /////////////////////////
 

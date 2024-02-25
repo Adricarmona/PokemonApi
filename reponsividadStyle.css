@@ -73,17 +73,28 @@
     #imagen {
         width: 100%;
     }
+
+    .erroneo {
+        font-size: 40px;
+    }
 }
 
 @media only screen and (max-width: 1024px) { /* de pc a tablet */
     .tipo{
         margin-left: 35%;
     }
+    .erroneo {
+        font-size: 35px;
+    }
 }
 
 @media only screen and (max-width: 768px) { /* de tablet a movil */
     .tipo{
         margin-left: 25%;
+    }
+
+    .erroneo {
+        font-size: 35px;
     }
 }
 
