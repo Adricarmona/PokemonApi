@@ -56,12 +56,17 @@ body {
 }
 
 /* DATOS POKEMON */
-#fotoPokemon{
+#fotoPokemon{ /* Las fotos de los pokemon */
     width: 40vh;
 }
 
-.iconosPequeno {
-    width: 5vh;
+.iconosPequeno { /* Las fotos de los pesos y la altura */
+    width: 3vh;
+    margin-left: 3vh;
+}
+
+.iconos { /* Las letras */
+    font-size: 2.5vh;
 }
 
 /*  los tipos de los pokemons   */

@@ -37,23 +37,10 @@ function Descripcion(pokemon){
 
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
-/////////ESTE ES COMO ESTA PENSADO EL DIV pokemon POR AHORA ////////////////
-/*
-<div id="Base">
-    <h1 id="Nombre">${pokemon.name}</h1>
-    <img id="fotoPokemon" src="${pokemon.sprites.other.home.front_default}" alt="pokemon">
-    <div>
-        <h3>ID: ${(pokemon.id).toString().padStart(3,"00")}</h3>
-        <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
-        <p class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</p>
-    </div>
-    <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}</p>
-    <p id="descripcion"></p>
-    -<div><h4>ESTADISTICAS</h4></div>
-</div>
-*/
 function imprimirPokemons(pokemon,descripcion) {
     let zonaPokemon = document.createElement('div');
+    const peso = pokemon.weight / 10;
+    const altura = pokemon.height / 10;
     zonaPokemon.classList.add('pokemons');
     if(pokemon.types.length == 1){                                  
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
@@ -63,7 +50,7 @@ function imprimirPokemons(pokemon,descripcion) {
             <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
         </div>
         <hr>
-        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}m</p>
+        <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     } else {
@@ -75,7 +62,7 @@ function imprimirPokemons(pokemon,descripcion) {
             <span class="tipo" id="${pokemon.types[1].type.name}">${traductor(pokemon.types[1].type.name)}</span>
         </div>
         <hr>
-        <p><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${pokemon.weight}kg|<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${pokemon.height}m</p>
+        <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
         <div><h4>ESTADISTICAS</h4></div>`;
     }
