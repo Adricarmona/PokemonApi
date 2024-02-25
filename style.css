@@ -5,9 +5,7 @@
 }
 /* EL BODY  */
 body {
-    background-color: rgb(0, 0, 0);
     margin: 0;
-    transition: background-image 0.5s ease-in-out;
     font-family:protests;
 }
 
@@ -24,7 +22,7 @@ body {
 /*  LA CABEZERA Y LA BARRA DE NAVEGACION  */
 header {
     background-color: rgb(210, 0, 0);
-    height: 30vh; /* RIKI No vuelvas a poner porcentajes, te lo prohibo */
+    height: 30vh; 
     display: flex;
 }
 
@@ -54,10 +52,11 @@ nav {
 }
 
 /* DONDE APARECEN TODOS LOS POKEMONS */
-.cuerpo_fuera {
-    display: grid;
-    width: 40%; /* ancho de todo el bloque de la pagina */
+
+.cuerpo_dentro {
+    width: 43%; /* ancho de todo el bloque de la pagina */
     margin: auto;
+    align-self: center;
 }
 
 #Base {
@@ -99,7 +98,7 @@ p {
 /*  los tipos de los pokemons   */
 
 .tipo{
-    margin-left: 41%;
+    margin-left: 40%;
     width: 9vh;
     height: 3vh;
     border-radius: 7px;

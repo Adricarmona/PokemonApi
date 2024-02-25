@@ -1,0 +1,99 @@
+/************************ Flecha volver *******************************/
+@media only screen and (max-width: 1524px) { /* de pc a tablet */
+    #flechaVolver { /* El BOTON DE SUBIR */
+        bottom: 10vh;
+        right: 3vh;
+    }
+}
+
+@media only screen and (max-width: 1024px) { /* de pc a tablet */
+    #flechaVolver { /* El BOTON DE SUBIR */
+        bottom: 10vh;
+        right: 3vh;
+    }
+}
+
+@media only screen and (max-width: 768px) { /* de tablet a movil */
+    #flechaVolver { /* El BOTON DE SUBIR */
+        bottom: 10vh;
+        right: 1vh;
+    }
+}
+
+@media only screen and (max-width: 370px) { /* de movil a movilmaschico */
+
+}
+
+/*************************** Cuerpo *************************************/
+@media only screen and (max-width: 1590px) { /* de pc grande a pc */
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 50%; 
+    }
+
+    #Base {
+        grid-template-columns: 50% 50%;
+    }
+}
+
+@media only screen and (max-width: 1024px) { /* de pc a tablet */
+    #Pokedex_icono { /*La foto de arriba*/
+        width: 100%;
+        margin: auto;
+    }
+
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 70%; 
+    }
+}
+
+@media only screen and (max-width: 768px) { /* de tablet a movil */
+    #Pokedex_icono { /*La foto de arriba*/
+        width: 100%;
+        margin: auto;
+    }
+
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 375px) { /* de movil a movilmaschico */
+    #Pokedex_icono { /*La foto de arriba*/
+        width: 100%;
+        margin: auto;
+    }
+
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 100%; /* ancho de todo el bloque de la pagina */
+    }
+}
+
+/*************************** Pokemons *************************************/
+@media only screen and (max-width: 1590px) { /* de pc grande a pc */
+    #imagen {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 1024px) { /* de pc a tablet */
+    .tipo{
+        margin-left: 35%;
+    }
+}
+
+@media only screen and (max-width: 768px) { /* de tablet a movil */
+    .tipo{
+        margin-left: 25%;
+    }
+}
+
+/*
+   ___ _      ___ ___                                    
+  / __| |__ _|_  ) __|                                   
+ | (_ | / _` |/ /\__ \                                   
+  \___|_\__,_/___|___/ _                                 
+  / __ \ __ _ __| |_ _(_)__ __ _ _ _ _ __  ___ _ _  __ _ 
+ / / _` / _` / _` | '_| / _/ _` | '_| '  \/ _ \ ' \/ _` |
+ \ \__,_\__,_\__,_|_| |_\__\__,_|_| |_|_|_\___/_||_\__,_|
+  \____/
+*/
