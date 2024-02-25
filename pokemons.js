@@ -22,8 +22,8 @@ barraBusqueda.addEventListener("keyup", buscador);
 function buscador(da) {
     document.getElementById('Base').innerHTML = '';
     // coge la barra y comprueba si tiene datos para meterlos en minusculas a datos o mete nada ''
-    var elemento = document.getElementById('botonBuscar');
-    var dato;
+    const elemento = document.getElementById('botonBuscar');
+    let dato;
     if (elemento) {
         dato = elemento.value.toLowerCase();
     } else {
@@ -59,7 +59,7 @@ async function devolverArray(id) { // Coge la id del pokemon dado en el bucle en
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
 /////////ESTE ES COMO ESTA PENSADO EL DIV pokemon POR AHORA ////////////////
 function imprimirPokemons(pokemon) {
-    var zonaPokemon = document.createElement('div');
+    let zonaPokemon = document.createElement('div');
     zonaPokemon.classList.add('pokemons');
     if(pokemon.types.length == 1){                                      // la "?" es para enviar el parrametro y "id=" es para indicar que variable es el dato y el pokemon id evidentemente es el numero
         zonaPokemon.innerHTML = 
