@@ -129,6 +129,8 @@ function traductor(tipo) {
             return "Hielo";
         case "ghost":
             return "Fantasma";
+        case "dragon":
+            return "dragón ";
         default:
             return "Error";
     }
