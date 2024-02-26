@@ -81,6 +81,10 @@ p {
     border-radius: 10px;
 }
 
+#nombre:first-letter {
+    text-transform: uppercase;
+}
+
 /*  los links de los pokemons */
 #linkPokemon {
     color: black;

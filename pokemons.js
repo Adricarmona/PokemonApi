@@ -72,7 +72,7 @@ function imprimirPokemons(pokemon) {
         zonaPokemon.innerHTML = 
         `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}">
             <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
-            <h2 id="name">${pokemon.name}</h2>
+            <h2 id="nombre">${pokemon.name}</h2>
             <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
             <div>
                 <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
@@ -81,7 +81,7 @@ function imprimirPokemons(pokemon) {
     } else {
         zonaPokemon.innerHTML = `<a id="linkPokemon" href="./vista_pokemon/vista_pokemon.html?id=${pokemon.id}">
             <img id="imagen" width="200px" src="${pokemon.sprites.other.home.front_default}">
-            <h2 id="name">${pokemon.name}</h2>
+            <h2 id="nombre">${pokemon.name}</h2>
             <p id="codigo">ID: ${(pokemon.id).toString().padStart(3,"00")}</p>
             <div>
                 <p class="tipo" id="${pokemon.types[0].type.name}">${traductor(pokemon.types[0].type.name)}</p>
