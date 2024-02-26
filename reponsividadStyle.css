@@ -29,10 +29,6 @@
     .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
         width: 50%; 
     }
-
-    #Base {
-        grid-template-columns: 50% 50%;
-    }
 }
 
 @media only screen and (max-width: 1024px) { /* de pc a tablet */

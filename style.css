@@ -62,7 +62,7 @@ nav {
 #Base {
     background-color: rgba(83, 83, 83, 0.418);
     display: grid;
-    grid-template-columns: 40vh 40vh;
+    grid-template-columns: 50% 50%;
     padding: 2vh;
 }
 
