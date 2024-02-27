@@ -66,6 +66,10 @@ nav {
     padding: 2vh;
 }
 
+#cargando {
+    margin-left: 50%;
+}
+
 p {
     color: black;
 }

@@ -1,5 +1,4 @@
 cargarPokemons(); // para iniciar la busqueda
-
 ////////////////// devuelve el pokemon en el array pokemonsTotales ///////////////////////
 const pokemonsTotales = []; // array donde esta todos los pokemons
 /// esta funcion coge todos los pokemons
@@ -8,7 +7,9 @@ async function cargarPokemons() {
     for (let index = 1; index <= 151; index++) {
         await devolverArray(index);
     }
+    document.getElementById('Base').innerHTML = '';
     for (const pokemon of pokemonsTotales) {
+        
         imprimirPokemons(pokemon)
     }
 }
