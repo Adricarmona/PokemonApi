@@ -109,4 +109,27 @@ function traductor(tipo) {
             return "Error";
     }
 }
-//////////////////////////////////////////////////////////////////////////
+
+
+///////////////////////////////// ESTADISTICAS TABLA ////////////////////////////////////
+
+const statistics = [
+    {name: "hp", base_stat: 1},
+    {name: "Ataque", base_stat: 1},
+    {name: "Defensa", base_stat: 1},
+    {name: "Ataque.esp", base_stat: 1},
+    {name: "Defensa.esp", base_stat: 1},
+    {name: "Velocidad", base_stat: 1}
+];
+
+const table = document.getElementById("statisticsTable");
+
+statistics.forEach(stat => {
+    const row = table.insertRow();
+
+    const nameCell = row.insertCell();
+    nameCell.textContent = stat.name.charAt(0).toUpperCase() + stat.name.slice(1);
+
+    const baseStatCell = row.insertCell();
+    baseStatCell.textContent = stat.base_stat;
+});

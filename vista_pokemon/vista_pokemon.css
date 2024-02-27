@@ -107,3 +107,30 @@ hr {
     width: 40vh;
     margin: auto;
 }
+
+/* TABLA DE ESTADISTICAS */
+
+table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 0 auto;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: left;
+}
+
+th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+h1 {
+    text-align: center;
+}
