@@ -46,7 +46,7 @@ function devolverPokemon(poke) {
         poke.stats[4].base_stat,
         poke.stats[5].base_stat
     ];
-    
+
     const estadisticas = [
         {name: "hp", base_stat: estadisticasNumeros[0]},
         {name: "Ataque", base_stat: estadisticasNumeros[1]},
@@ -56,16 +56,16 @@ function devolverPokemon(poke) {
         {name: "Velocidad", base_stat: estadisticasNumeros[5]}
     ];
 
-    const table = document.getElementById("tablaEstadisticas");
+    const tabla = document.getElementById("tablaEstadisticas");
 
-    estadisticas.forEach(stat => {
-        const row = table.insertRow();
+    estadisticas.forEach(numeros => {
+        const fila = tabla.insertRow(); // inserta una fila (por cada iteracion)
 
-        const nameCell = row.insertCell();
-        nameCell.textContent = stat.name.charAt(0).toUpperCase() + stat.name.slice(1);
+        const nombreCelda = fila.insertCell(); // añade una celda con los siguientes datos de los nombres
+        nombreCelda.textContent = numeros.name.charAt(0).toUpperCase() + numeros.name.slice(1);
 
-        const baseStatCell = row.insertCell();
-        baseStatCell.textContent = stat.base_stat;
+        const numeroEstadisticas = fila.insertCell();
+        numeroEstadisticas.textContent = numeros.base_stat;
     });
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
