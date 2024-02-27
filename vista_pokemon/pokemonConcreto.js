@@ -1,10 +1,9 @@
 ///////// sacando la id del pokemon pedido //////////
 const idURL = new URLSearchParams(window.location.search);
 const id = idURL.get('id');
-let descripcion;
 let pokemones;
-dameDescripcionYa(id).then((pokemon) => {descripcion = Descripcion(pokemon)}); 
-damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon,descripcion),devolverPokemon(pokemon)});
+damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon),devolverPokemon(pokemon)});
+dameDescripcionYa(id).then((pokemon) => {Descripcion(pokemon)}); 
 // cogemos el pokemon y con el then lo convertimos a sincrono metiendolo en "pokemon"
 // y metiendolo en la funcion flecha, y lo metemos en la funcion "imprimir" dandole "pokemon"
 /////////////////////////////////////////////////////
@@ -32,7 +31,8 @@ async function dameDescripcionYa(id) {
 
 ////////    imprimimos la descripcion por pantalla    //////////
 function Descripcion(pokemon){
-    return pokemon.flavor_text_entries[26].flavor_text;
+    const descripcion = document.getElementById("descripcion");
+    descripcion.innerHTML = `${pokemon.flavor_text_entries[26].flavor_text}`;
 }
 ////////////////////////////////////////////////////////////
 
@@ -72,7 +72,7 @@ function devolverPokemon(poke) {
 
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
-function imprimirPokemons(pokemon,descripcion) {
+function imprimirPokemons(pokemon) {
     let zonaPokemon = document.createElement('div');
     const peso = pokemon.weight / 10;
     const altura = pokemon.height / 10;
@@ -86,7 +86,7 @@ function imprimirPokemons(pokemon,descripcion) {
         </div>
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
-        <p id="descripcion">${descripcion}</p>
+        <p id="descripcion"></p>
         <hr>
         <div><h4>ESTADISTICAS BASE</h4></div>
         <div class="tablaEstadisticas">
@@ -107,7 +107,7 @@ function imprimirPokemons(pokemon,descripcion) {
         </div>
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
-        <p id="descripcion">${descripcion}</p>
+        <p id="descripcion"></p>
         <hr>
         <h4>ESTADISTICAS BASE</h4>
         <div class="tablaEstadisticas">
