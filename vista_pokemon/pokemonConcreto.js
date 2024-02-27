@@ -78,10 +78,26 @@ function devolverPokemon(poke) {
 async function comprobadorCadena(nombre) {
     for (let index = 1; index < 78; index++) {
         cadenaEvolutiva(index).then((cadena) => {
-            if (cadena.chain.species.name === nombre) {
-                console.log(cadena.chain.species.name);
-                console.log(cadena.chain.evolves_to[0].species.name);
-                console.log(cadena.chain.evolves_to[0].evolves_to[0].species.name);
+            try {
+                if (cadena.chain.species.name === 'eevee' && (nombre === 'eevee' || nombre === 'vaporeon' || nombre ===  'jolteon' || nombre === 'flareon')) {
+                    console.log(cadena.chain.species.name);
+                    console.log(cadena.chain.evolves_to[0].species.name);
+                    console.log(cadena.chain.evolves_to[1].species.name);
+                    console.log(cadena.chain.evolves_to[2].species.name);
+                } else if(cadena.chain.species.name === nombre
+                    || cadena.chain.evolves_to[0].species.name === nombre 
+                    || cadena.chain.evolves_to[0].evolves_to[0].species.name === nombre
+                    || cadena.chain.evolves_to[1].evolves_to[0].species.name === nombre
+                    || cadena.chain.evolves_to[2].evolves_to[0].species.name === nombre) 
+                {
+                    console.log(cadena.chain.species.name);
+                    console.log(cadena.chain.evolves_to[0].species.name);
+                    console.log(cadena.chain.evolves_to[0].evolves_to[0].species.name);
+                    console.log(cadena.chain.evolves_to[1].evolves_to[0].species.name)
+                    console.log(cadena.chain.evolves_to[2].evolves_to[0].species.name);
+                }
+            } catch (error) {
+                console.log("XD")
             }
         })
     }
