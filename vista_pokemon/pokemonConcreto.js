@@ -2,7 +2,7 @@
 const idURL = new URLSearchParams(window.location.search);
 const id = idURL.get('id');
 let pokemones;
-damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon),devolverPokemon(pokemon)});
+damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon),devolverPokemon(pokemon),comprobadorCadena(pokemon.name)});
 dameDescripcionYa(id).then((pokemon) => {Descripcion(pokemon)}); 
 // cogemos el pokemon y con el then lo convertimos a sincrono metiendolo en "pokemon"
 // y metiendolo en la funcion flecha, y lo metemos en la funcion "imprimir" dandole "pokemon"
@@ -35,6 +35,7 @@ function Descripcion(pokemon){
     descripcion.innerHTML = `${pokemon.flavor_text_entries[26].flavor_text}`;
 }
 ////////////////////////////////////////////////////////////
+
 
 ///////////////////////////////// ESTADISTICAS TABLA ////////////////////////////////////
 function devolverPokemon(poke) {
@@ -69,6 +70,30 @@ function devolverPokemon(poke) {
     });
 }
 ////////////////////////////////////////////////////////////////////////////////////////////
+
+
+///////////     CADENA EVOLUTIVA    /////////////////
+// https://pokeapi.co/api/v2/evolution-chain/78/ este es el maximo
+
+async function comprobadorCadena(nombre) {
+    for (let index = 1; index < 78; index++) {
+        cadenaEvolutiva(index).then((cadena) => {
+            if (cadena.chain.species.name === nombre) {
+                console.log(cadena.chain.species.name);
+                console.log(cadena.chain.evolves_to[0].species.name);
+                console.log(cadena.chain.evolves_to[0].evolves_to[0].species.name);
+            }
+        })
+    }
+}
+
+async function cadenaEvolutiva(id) {
+    const response = await fetch(`https://pokeapi.co/api/v2/evolution-chain/${id}/`);
+    const pokemonJson = await response.text();
+    const obj = JSON.parse(pokemonJson);
+    return obj;
+}
+/////////////////////////////////////////////////////
 
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
