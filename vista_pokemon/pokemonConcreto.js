@@ -2,8 +2,9 @@
 const idURL = new URLSearchParams(window.location.search);
 const id = idURL.get('id');
 let descripcion;
-dameDescripcionYa(id).then((pokemon) => {descripcion = Descripcion(pokemon);}); 
-damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon,descripcion);}); 
+let pokemones;
+dameDescripcionYa(id).then((pokemon) => {descripcion = Descripcion(pokemon)}); 
+damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon,descripcion),devolverPokemon(pokemon)});
 // cogemos el pokemon y con el then lo convertimos a sincrono metiendolo en "pokemon"
 // y metiendolo en la funcion flecha, y lo metemos en la funcion "imprimir" dandole "pokemon"
 /////////////////////////////////////////////////////
@@ -13,7 +14,7 @@ damePokemonYa(id).then((pokemon) => {imprimirPokemons(pokemon,descripcion);});
 async function damePokemonYa(id) {
     const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`);
     const pokemonJson = await response.text();
-    const obj = JSON.parse(pokemonJson);
+    const obj = JSON.parse(pokemonJson)
     return obj; // devuelve el objeto
 }
 //////////////////////////////////////////////////////
@@ -35,6 +36,40 @@ function Descripcion(pokemon){
 }
 ////////////////////////////////////////////////////////////
 
+///////////////////////////////// ESTADISTICAS TABLA ////////////////////////////////////
+function devolverPokemon(poke) {
+    const estadisticasNumeros = [
+        poke.stats[0].base_stat,
+        poke.stats[1].base_stat,
+        poke.stats[2].base_stat,
+        poke.stats[3].base_stat,
+        poke.stats[4].base_stat,
+        poke.stats[5].base_stat
+    ];
+    
+    const estadisticas = [
+        {name: "hp", base_stat: estadisticasNumeros[0]},
+        {name: "Ataque", base_stat: estadisticasNumeros[1]},
+        {name: "Defensa", base_stat: estadisticasNumeros[2]},
+        {name: "Ataque.esp", base_stat: estadisticasNumeros[3]},
+        {name: "Defensa.esp", base_stat: estadisticasNumeros[4]},
+        {name: "Velocidad", base_stat: estadisticasNumeros[5]}
+    ];
+
+    const table = document.getElementById("tablaEstadisticas");
+
+    estadisticas.forEach(stat => {
+        const row = table.insertRow();
+
+        const nameCell = row.insertCell();
+        nameCell.textContent = stat.name.charAt(0).toUpperCase() + stat.name.slice(1);
+
+        const baseStatCell = row.insertCell();
+        baseStatCell.textContent = stat.base_stat;
+    });
+}
+////////////////////////////////////////////////////////////////////////////////////////////
+
 
 //////////// LO DE IR GENERANDO LOS POKEMONS CON LAS FOTOS ///////////////////////////////
 function imprimirPokemons(pokemon,descripcion) {
@@ -52,7 +87,14 @@ function imprimirPokemons(pokemon,descripcion) {
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
-        <div><h4>ESTADISTICAS</h4></div>`;
+        <div><h4>ESTADISTICAS</h4></div>
+        <div class="tablaEstadisticas">
+            <table id="tablaEstadisticas">
+            <tr>
+                <th>Características Base</th>
+            </tr>
+            </table>
+        </div>`;
     } else {
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
         <img id="fotoPokemon" src="${pokemon.sprites.other.home.front_default}" alt="pokemon">
@@ -64,7 +106,14 @@ function imprimirPokemons(pokemon,descripcion) {
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
-        <div><h4>ESTADISTICAS</h4></div>`;
+        <div><h4>ESTADISTICAS</h4></div>
+        <div class="tablaEstadisticas">
+            <table id="tablaEstadisticas">
+                <tr>
+                    <th>Características Base</th>
+                </tr>                
+            </table>
+        </div>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
     
@@ -109,27 +158,6 @@ function traductor(tipo) {
             return "Error";
     }
 }
+////////////////////////////////////////////////////////////////////////////////////////////
 
 
-///////////////////////////////// ESTADISTICAS TABLA ////////////////////////////////////
-
-const statistics = [
-    {name: "hp", base_stat: 1},
-    {name: "Ataque", base_stat: 1},
-    {name: "Defensa", base_stat: 1},
-    {name: "Ataque.esp", base_stat: 1},
-    {name: "Defensa.esp", base_stat: 1},
-    {name: "Velocidad", base_stat: 1}
-];
-
-const table = document.getElementById("statisticsTable");
-
-statistics.forEach(stat => {
-    const row = table.insertRow();
-
-    const nameCell = row.insertCell();
-    nameCell.textContent = stat.name.charAt(0).toUpperCase() + stat.name.slice(1);
-
-    const baseStatCell = row.insertCell();
-    baseStatCell.textContent = stat.base_stat;
-});
