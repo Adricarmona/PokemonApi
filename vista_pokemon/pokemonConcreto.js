@@ -87,13 +87,15 @@ function imprimirPokemons(pokemon,descripcion) {
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}kg<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
-        <div><h4>ESTADISTICAS</h4></div>
+        <hr>
+        <div><h4>ESTADISTICAS BASE</h4></div>
         <div class="tablaEstadisticas">
-            <table id="tablaEstadisticas">
-            <tr>
-                <th>Características Base</th>
-            </tr>
+            <table id="tablaEstadisticas">               
             </table>
+        </div>
+        <hr>
+        <div id="Cadena">
+            <h2>Cadena Evolutiva</h2>
         </div>`;
     } else {
         zonaPokemon.innerHTML = `<h1 id="Nombre">${pokemon.name}</h1>
@@ -106,13 +108,15 @@ function imprimirPokemons(pokemon,descripcion) {
         <hr>
         <p class="iconos"><img class="iconosPequeno" src="../imagenes/peso.png" alt="peso">${peso}<img class="iconosPequeno" src="../imagenes/altura.png" alt="altura">${altura}m</p>
         <p id="descripcion">${descripcion}</p>
-        <div><h4>ESTADISTICAS</h4></div>
+        <hr>
+        <h4>ESTADISTICAS BASE</h4>
         <div class="tablaEstadisticas">
-            <table id="tablaEstadisticas">
-                <tr>
-                    <th>Características Base</th>
-                </tr>                
+            <table id="tablaEstadisticas">               
             </table>
+        </div>
+        <hr>
+        <div id="Cadena">
+            <h2>Cadena Evolutiva</h2>
         </div>`;
     }
     document.getElementById('Base').appendChild(zonaPokemon);
