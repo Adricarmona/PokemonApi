@@ -131,3 +131,13 @@ th, td {
 h2 {
     font-size: 4vh;
 }
+
+#Cadena {
+    font-size: 2.5vh;
+    text-align: center;
+    text-transform: capitalize;
+}
+
+#flechaDerecha {
+    width: 3vh;
+}

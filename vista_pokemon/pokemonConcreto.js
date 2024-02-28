@@ -76,28 +76,49 @@ function devolverPokemon(poke) {
 // https://pokeapi.co/api/v2/evolution-chain/78/ este es el maximo
 
 async function comprobadorCadena(nombre) {
+    const cadenaEnHtml = document.getElementById("Cadena");
     for (let index = 1; index < 78; index++) {
         cadenaEvolutiva(index).then((cadena) => {
             try {
                 if (cadena.chain.species.name === 'eevee' && (nombre === 'eevee' || nombre === 'vaporeon' || nombre ===  'jolteon' || nombre === 'flareon')) {
-                    console.log(cadena.chain.species.name);
-                    console.log(cadena.chain.evolves_to[0].species.name);
-                    console.log(cadena.chain.evolves_to[1].species.name);
-                    console.log(cadena.chain.evolves_to[2].species.name);
+                    cadenaEnHtml.innerHTML = `
+                    <h2>Cadena Evolutiva</h2>
+                    ${cadena.chain.species.name} 
+                    <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                    ${cadena.chain.evolves_to[0].species.name}, 
+                    ${cadena.chain.evolves_to[1].species.name}`;
                 } else if(cadena.chain.species.name === nombre
                     || cadena.chain.evolves_to[0].species.name === nombre 
-                    || cadena.chain.evolves_to[0].evolves_to[0].species.name === nombre
-                    || cadena.chain.evolves_to[1].evolves_to[0].species.name === nombre
-                    || cadena.chain.evolves_to[2].evolves_to[0].species.name === nombre) 
+                    || cadena.chain.evolves_to[0].evolves_to[0].species.name === nombre) 
                 {
-                    console.log(cadena.chain.species.name);
-                    console.log(cadena.chain.evolves_to[0].species.name);
-                    console.log(cadena.chain.evolves_to[0].evolves_to[0].species.name);
-                    console.log(cadena.chain.evolves_to[1].evolves_to[0].species.name)
-                    console.log(cadena.chain.evolves_to[2].evolves_to[0].species.name);
+                    try {
+                        if (cadena.chain.evolves_to[0].evolves_to[0].species.name) {
+                            cadenaEnHtml.innerHTML = `
+                            <h2>Cadena Evolutiva</h2>
+                            ${cadena.chain.species.name}
+                            <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                            ${cadena.chain.evolves_to[0].species.name}
+                            <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                            ${cadena.chain.evolves_to[0].evolves_to[0].species.name}`;
+                        }
+                    } catch (error) {
+                        try {
+                            if (cadena.chain.evolves_to[0].species.name) {
+                                cadenaEnHtml.innerHTML = `
+                                <h2>Cadena Evolutiva</h2>
+                                ${cadena.chain.species.name}
+                                <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                                ${cadena.chain.evolves_to[0].species.name}`;
+                            }
+                        } catch (error) {
+                            cadenaEnHtml.innerHTML = `
+                            <h2>Cadena Evolutiva</h2>
+                            ${cadena.chain.species.name}`;
+                        }
+                    }
                 }
             } catch (error) {
-                console.log("XD")
+                console.log("no encontro pokemon")
             }
         })
     }
