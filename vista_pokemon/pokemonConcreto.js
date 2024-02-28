@@ -81,12 +81,19 @@ async function comprobadorCadena(nombre) {
         cadenaEvolutiva(index).then((cadena) => {
             try {
                 if (cadena.chain.species.name === 'eevee' && (nombre === 'eevee' || nombre === 'vaporeon' || nombre ===  'jolteon' || nombre === 'flareon')) {
+                    console.log(cadena.chain);
                     cadenaEnHtml.innerHTML = `
                     <h2>Cadena Evolutiva</h2>
-                    ${cadena.chain.species.name} 
-                    <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
-                    ${cadena.chain.evolves_to[0].species.name}, 
-                    ${cadena.chain.evolves_to[1].species.name}`;
+                    <div id="cadenaEvoEve">
+                        <div id="izquierdaEvo">
+                        ${cadena.chain.species.name}
+                        </div> 
+                        <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                        <div id="derechaEvo">
+                            <p>(${cadena.chain.evolves_to[0].evolution_details[0].trigger.name}, ${cadena.chain.evolves_to[0].evolution_details[0].item.name}): ${cadena.chain.evolves_to[0].species.name},</p>
+                            <p>(${cadena.chain.evolves_to[1].evolution_details[0].trigger.name}, ${cadena.chain.evolves_to[1].evolution_details[0].item.name}): ${cadena.chain.evolves_to[1].species.name} </p>
+                        </div>
+                    </div>`;
                 } else if(cadena.chain.species.name === nombre
                     || cadena.chain.evolves_to[0].species.name === nombre 
                     || cadena.chain.evolves_to[0].evolves_to[0].species.name === nombre) 
@@ -95,20 +102,43 @@ async function comprobadorCadena(nombre) {
                         if (cadena.chain.evolves_to[0].evolves_to[0].species.name) {
                             cadenaEnHtml.innerHTML = `
                             <h2>Cadena Evolutiva</h2>
-                            ${cadena.chain.species.name}
-                            <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
-                            ${cadena.chain.evolves_to[0].species.name}
-                            <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
-                            ${cadena.chain.evolves_to[0].evolves_to[0].species.name}`;
+                            <div id="cadenaEvo3">
+                                <div>
+                                    ${cadena.chain.species.name}
+                                </div>
+                                <div>
+                                    <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
+                                    (${cadena.chain.evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolution_details[0].min_level})
+                                </div>
+                                <div>
+                                    ${cadena.chain.evolves_to[0].species.name}
+                                </div>
+                                <div>
+                                    <p><img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha"></p>
+                                    (${cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level})
+                                </div>
+                                <div>
+                                    ${cadena.chain.evolves_to[0].evolves_to[0].species.name}
+                                </div>
+                            </div>`;
                         }
                     } catch (error) {
                         try {
                             if (cadena.chain.evolves_to[0].species.name) {
                                 cadenaEnHtml.innerHTML = `
                                 <h2>Cadena Evolutiva</h2>
-                                ${cadena.chain.species.name}
-                                <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
-                                ${cadena.chain.evolves_to[0].species.name}`;
+                                <div id="cadenaEvo2">
+                                    <div>
+                                        ${cadena.chain.species.name} 
+                                    </div>
+                                    <div>
+                                        <p><img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha"></p>
+                                        (${cadena.chain.evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolution_details[0].min_level})
+                                    </div>
+                                    <div>
+                                    ${cadena.chain.evolves_to[0].species.name}
+                                    </div>
+                                </div>`;
                             }
                         } catch (error) {
                             cadenaEnHtml.innerHTML = `
@@ -118,7 +148,6 @@ async function comprobadorCadena(nombre) {
                     }
                 }
             } catch (error) {
-                console.log("no encontro pokemon")
             }
         })
     }

@@ -10,12 +10,10 @@ body {
     font-family:protests;
 }
 
-.cuerpo_fuera{
-    display: grid;
-}
-
-.cuerpo_dentro{
+.cuerpo_dentro {
+    width: 35%; /* ancho de todo el bloque de la pagina */
     margin: auto;
+    align-self: center;
 }
 
 /* el boton de modo oscuro */
@@ -139,5 +137,23 @@ h2 {
 }
 
 #flechaDerecha {
-    width: 3vh;
+    width: 6vh;
+}
+
+/* LOS EVE */
+#cadenaEvoEve{
+    display: grid;
+    grid-template-columns: 20% 4% 76%;
+}
+
+/* los 3 */
+#cadenaEvo3{
+    display: grid;
+    grid-template-columns: 20% 20% 20% 20% 20%;
+}
+
+/* los 3 */
+#cadenaEvo2{
+    display: grid;
+    grid-template-columns: 35% 30% 35%;
 }
