@@ -90,8 +90,8 @@ async function comprobadorCadena(nombre) {
                         </div> 
                         <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
                         <div id="derechaEvo">
-                            <p>(${cadena.chain.evolves_to[0].evolution_details[0].trigger.name}, ${cadena.chain.evolves_to[0].evolution_details[0].item.name}): ${cadena.chain.evolves_to[0].species.name},</p>
-                            <p>(${cadena.chain.evolves_to[1].evolution_details[0].trigger.name}, ${cadena.chain.evolves_to[1].evolution_details[0].item.name}): ${cadena.chain.evolves_to[1].species.name} </p>
+                            <p>${traductorEvo(cadena.chain.evolves_to[0].evolution_details[0].trigger.name)}: ${traductorEvo(cadena.chain.evolves_to[0].evolution_details[0].item.name)} ➜ ${cadena.chain.evolves_to[0].species.name}</p>
+                            <p>${traductorEvo(cadena.chain.evolves_to[1].evolution_details[0].trigger.name)}: ${traductorEvo(cadena.chain.evolves_to[1].evolution_details[0].item.name)} ➜ ${cadena.chain.evolves_to[1].species.name} </p>
                         </div>
                     </div>`;
                 } else if(cadena.chain.species.name === nombre
@@ -107,15 +107,15 @@ async function comprobadorCadena(nombre) {
                                     ${cadena.chain.species.name}
                                 </div>
                                 <div>
-                                    <img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha">
-                                    (${cadena.chain.evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolution_details[0].min_level})
+                                    <p><img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha"></p>
+                                    (${traductorEvo(cadena.chain.evolves_to[0].evolution_details[0].trigger.name)} ${nivelOQue(cadena.chain.evolves_to[0].evolution_details[0])})
                                 </div>
                                 <div>
                                     ${cadena.chain.evolves_to[0].species.name}
                                 </div>
                                 <div>
                                     <p><img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha"></p>
-                                    (${cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0].min_level})
+                                    (${traductorEvo(cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0].trigger.name)} ${nivelOQue(cadena.chain.evolves_to[0].evolves_to[0].evolution_details[0])})
                                 </div>
                                 <div>
                                     ${cadena.chain.evolves_to[0].evolves_to[0].species.name}
@@ -133,7 +133,7 @@ async function comprobadorCadena(nombre) {
                                     </div>
                                     <div>
                                         <p><img id="flechaDerecha" src="../imagenes/flecha_derehca.png" alt="flecha a la derecha"></p>
-                                        (${cadena.chain.evolves_to[0].evolution_details[0].trigger.name} ${cadena.chain.evolves_to[0].evolution_details[0].min_level})
+                                        (${traductorEvo(cadena.chain.evolves_to[0].evolution_details[0].trigger.name)} ${nivelOQue(cadena.chain.evolves_to[0].evolution_details[0])})
                                     </div>
                                     <div>
                                     ${cadena.chain.evolves_to[0].species.name}
@@ -150,6 +150,24 @@ async function comprobadorCadena(nombre) {
             } catch (error) {
             }
         })
+    }
+}
+
+function nivelOQue(pokemon) {
+    if (pokemon.held_item) {
+        return traductorEvo(pokemon.held_item.name);
+    }
+    if (pokemon.known_move) {
+        return traductorEvo(pokemon.known_move.name);
+    }
+    if (pokemon.min_level) {
+        return pokemon.min_level;
+    }
+    if (pokemon.min_happiness) {
+        return pokemon.min_happiness;
+    }
+    if (pokemon.trigger.name == "use-item") {
+        return traductorEvo(pokemon.item.name);
     }
 }
 
@@ -256,3 +274,47 @@ function traductor(tipo) {
 ////////////////////////////////////////////////////////////////////////////////////////////
 
 
+////////////////////////////////////    TRADUCTOR   ////////////////////////////////////////
+function traductorEvo(palabra) {
+    switch (palabra) {
+        case "level-up":
+            return "nivel";
+        case "use-item":
+            return "objeto";
+        case "trade":
+            return "Intercambio";
+        case "moon-stone":
+            return "piedra lunar"
+        case "thunder-stone":
+            return "piedra trueno";
+        case "fire-stone":
+            return "piedra fuego"
+        case "leaf-stone":
+            return "piedra hoja";
+        case "water-stone":
+            return "piedra agua";
+        case "oval-stone":
+            return "piedra oval";
+        case "metal-coat":
+            return ", rev. metálico";
+        case "rollout":
+            return ", desenrollar";
+        case "ancient-power":
+            return ", poder pasado";
+        case "dragon-scale":
+            return ", escama dragón";
+        case "mimic":
+            return ", mimético";
+        case "electirizer":
+            return ", electrizador";
+        case "magmarizer":
+            return ", magmatizador";
+        case "up-grade":
+            return ", mejora";
+        case "dubious-disc":
+            return ", discoextraño";
+        default:
+            return palabra;
+    }
+}
+////////////////////////////////////////////////////////////////////////////////////////////X

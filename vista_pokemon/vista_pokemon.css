@@ -11,7 +11,7 @@ body {
 }
 
 .cuerpo_dentro {
-    width: 35%; /* ancho de todo el bloque de la pagina */
+    width: 45%; /* ancho de todo el bloque de la pagina */
     margin: auto;
     align-self: center;
 }
@@ -132,7 +132,6 @@ h2 {
 
 #Cadena {
     font-size: 2.5vh;
-    text-align: center;
     text-transform: capitalize;
 }
 
@@ -141,6 +140,10 @@ h2 {
 }
 
 /* LOS EVE */
+#Cadena p {
+    margin: 0px;
+}
+
 #cadenaEvoEve{
     display: grid;
     grid-template-columns: 20% 4% 76%;
