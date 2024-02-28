@@ -1,0 +1,65 @@
+@media only screen and (max-width: 1590px) { /* de pc grande a pc */
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 50%; 
+    }
+    #Volver {
+        top: 2vh;
+        left: 50vh;
+    }
+}
+
+@media only screen and (max-width: 1450px) { /* de pc grande a pc */
+    #Volver {
+        top: 2vh;
+        left: 40vh;
+    }
+}
+
+@media only screen and (max-width: 1220px) { /* de pc grande a pc */
+    #Volver {
+        top: 2vh;
+        left: 30vh;
+    }
+}
+
+@media only screen and (max-width: 1024px) { /* de pc a tablet */
+    #Volver {
+        top: 2vh;
+        left: 6vh;
+    }
+
+    #Pokedex_icono { /*La foto de arriba*/
+        width: 100%;
+        margin: auto;
+    }
+
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 70%; 
+    }
+}
+
+@media only screen and (max-width: 768px) { /* de tablet a movil */
+    #Volver {
+        top: 0vh;
+        left: 0vh;
+    }
+
+    .cuerpo_dentro { /* DONDE APARECEN TODOS LOS POKEMONS */
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 375px) { /* de movil a movilmaschico */
+
+}
+
+/*
+   ___ _      ___ ___                                    
+  / __| |__ _|_  ) __|                                   
+ | (_ | / _` |/ /\__ \                                   
+  \___|_\__,_/___|___/ _                                 
+  / __ \ __ _ __| |_ _(_)__ __ _ _ _ _ __  ___ _ _  __ _ 
+ / / _` / _` / _` | '_| / _/ _` | '_| '  \/ _ \ ' \/ _` |
+ \ \__,_\__,_\__,_|_| |_\__\__,_|_| |_|_|_\___/_||_\__,_|
+  \____/
+*/

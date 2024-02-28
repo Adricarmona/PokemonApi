@@ -38,7 +38,7 @@ body {
 
 #Volver {
     top: 2vh;
-    left: 47vh;
+    left: 60vh;
 }
 
 #flecha_atras {
@@ -102,7 +102,7 @@ hr {
     background-color: rgba(216, 216, 216, 0.568);
     border-radius: 1vh;
     padding: 1vh;
-    width: 40vh;
+    width: 75%;
     margin: auto;
 }
 
